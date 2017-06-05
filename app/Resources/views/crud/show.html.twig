@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1>TODO:</h1>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>WHAT</th>
+                    <td>{{ cRUD.text }}</td>
+                </tr>
+                <tr>
+                    <th>WHEN</th>
+                    <td>{% if cRUD.date %}{{ cRUD.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>COMPLETE?</th>
+                    <td>{% if cRUD.done %}Yes{% else %}No{% endif %}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="btn-group">
+                <a class="btn btn-default" href="{{ path('posts_index') }}">Back to the list</a>
+                <a class="btn btn-default" href="{{ path('posts_edit', { 'id': cRUD.id }) }}">Edit</a>
+            </div>
+            {{ form_start(delete_form) }}
+            <input class="btn btn-default" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </div>
+    </div>
+{% endblock %}

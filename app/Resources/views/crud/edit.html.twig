@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% form_theme edit_form 'bootstrap_3_layout.html.twig' %}
+            <h1>Crud edit</h1>
+
+            {{ form_start(edit_form) }}
+
+            <div class="btn-group">
+                {{ form_widget(edit_form) }}
+                <input class="btn btn-default" type="submit" value="Save">
+                <a class="btn btn-default" href="{{ path('posts_index') }}">Back to the list</a>
+            </div>
+            {{ form_end(edit_form) }}
+            {{ form_start(delete_form) }}
+            <input class="btn btn-default" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </div>
+    </div>
+{% endblock %}

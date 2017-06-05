@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+    <div class="container">
+        <div class="row">
+            <h1>Add a TODO</h1>
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input class="btn btn-default" type="submit" value="Create" />
+            {{ form_end(form) }}
+            <br>
+            <a class="btn btn-default" href="{{ path('posts_index') }}">Back to the list</a>
+        </div>
+    </div>
+{% endblock %}
